@@ -1,13 +1,52 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>taskflow</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
-  </body>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TaskFlow — Início</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<header>
+  <nav class="nav">
+    <h1 class="logo">TaskFlow</h1>
+    <ul class="menu">
+      <li><a href="index.html" class="active">Início</a></li>
+      <li><a href="cadastro.html">Cadastro</a></li>
+      <li><a href="listagem.html">Listagem</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+
+  <section class="hero">
+    <h2>Organize suas tarefas</h2>
+    <p>Controle simples e eficiente.</p>
+    <a href="cadastro.html" class="btn">Nova tarefa</a>
+  </section>
+
+  <section class="stats">
+    <article>
+      <h3>Total</h3>
+      <p id="total">0</p>
+    </article>
+
+    <article>
+      <h3>Concluídas</h3>
+      <p id="done">0</p>
+    </article>
+  </section>
+
+</main>
+
+<footer>
+  <p>TaskFlow</p>
+</footer>
+
+<script type="module" src="js/index.js"></script>
+
+</body>
 </html>
