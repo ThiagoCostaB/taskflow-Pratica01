@@ -1,37 +1,28 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Listagem de Tarefas</title>
+    <meta charset="UTF-8">
+    <title>TaskFlow — Listagem</title>
+    <link rel="stylesheet" href="src/style.css">
 </head>
-
 <body>
+    <header class="main-header">
+        <h1 class="logo">TaskFlow</h1>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="cadastro.html">Cadastro</a></li>
+                <li><a href="listagem.html" class="active">Listagem</a></li>
+            </ul>
+        </nav>
+    </header>
 
-<header>
-  <nav class="nav">
-    <h1>TaskFlow</h1>
-    <ul class="menu">
-      <li><a href="/index.html">Início</a></li>
-      <li><a href="/cadastro.html">Cadastro</a></li>
-      <li><a href="/listagem.html" class="active">Listagem</a></li>
-    </ul>
-  </nav>
-</header>
-
-<main>
-  <section>
-    <h2>Tarefas</h2>
-    <section id="task-list"></section>
-  </section>
-</main>
-
-<footer>
-  <p>TaskFlow</p>
-</footer>
-
-<script type="module" src="/src/app.js"></script>
-<script type="module" src="/src/index.js"></script>
-
+    <main class="container">
+        <section>
+            <h2>Tarefas Atuais</h2>
+            <ul id="task-list" class="task-grid"></ul>
+        </section>
+    </main>
+    <script type="module" src="src/listagem.js"></script>
 </body>
 </html>

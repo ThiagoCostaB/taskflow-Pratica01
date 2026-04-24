@@ -1,52 +1,53 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TaskFlow — Início</title>
-  <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskFlow — Início</title>
+    <link rel="stylesheet" href="src/style.css">
 </head>
-
 <body>
+    <header class="main-header">
+        <h1 class="logo">TaskFlow</h1>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html" class="active">Início</a></li>
+                <li><a href="cadastro.html">Cadastro</a></li>
+                <li><a href="listagem.html">Listagem</a></li>
+            </ul>
+        </nav>
+    </header>
 
-<header>
-  <nav class="nav">
-    <h1 class="logo">TaskFlow</h1>
-    <ul class="menu">
-      <li><a href="index.html" class="active">Início</a></li>
-      <li><a href="cadastro.html">Cadastro</a></li>
-      <li><a href="listagem.html">Listagem</a></li>
-    </ul>
-  </nav>
-</header>
+    <main class="container">
+        <section class="hero">
+            <h2>Organize suas tarefas</h2>
+            <p>Controle simples e eficiente para seus projetos.</p>
+            <a href="cadastro.html" class="btn-new-task">Nova tarefa</a>
+        </section>
 
-<main>
+        <section class="stats-grid">
+            <article class="card total">
+                <h3>Total</h3>
+                <p id="total-count" class="stat-number">0</p>
+            </article>
+            <article class="card concluidas">
+                <h3>Concluídas</h3>
+                <p id="done-count" class="stat-number">0</p>
+            </article>
+        </section>
 
-  <section class="hero">
-    <h2>Organize suas tarefas</h2>
-    <p>Controle simples e eficiente.</p>
-    <a href="cadastro.html" class="btn">Nova tarefa</a>
-  </section>
+        <section class="recent-tasks">
+            <h2>🚀 Atividade Recente</h2>
+            <ul id="recent-list">
+                <li>Nenhuma tarefa recente encontrada.</li>
+            </ul>
+        </section>
+    </main>
 
-  <section class="stats">
-    <article>
-      <h3>Total</h3>
-      <p id="total">0</p>
-    </article>
+    <footer class="main-footer">
+        <p>&copy; 2026 TaskFlow - Gerenciador Acadêmico</p>
+    </footer>
 
-    <article>
-      <h3>Concluídas</h3>
-      <p id="done">0</p>
-    </article>
-  </section>
-
-</main>
-
-<footer>
-  <p>TaskFlow</p>
-</footer>
-
-<script type="module" src="src/index.js"></script>
-
+    <script type="module" src="src/index.js"></script>
 </body>
 </html>

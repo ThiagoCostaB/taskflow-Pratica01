@@ -1,44 +1,48 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <title>Cadastro</title>
-  <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <title>TaskFlow — Cadastro</title>
+    <link rel="stylesheet" href="src/style.css">
 </head>
-
 <body>
+    <header class="main-header">
+        <h1 class="logo">TaskFlow</h1>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="cadastro.html" class="active">Cadastro</a></li>
+                <li><a href="listagem.html">Listagem</a></li>
+            </ul>
+        </nav>
+    </header>
 
-<header>
-  <nav class="nav">
-    <h1>TaskFlow</h1>
-  </nav>
-</header>
+    <main class="container">
+        <section>
+            <h2>Nova Tarefa</h2>
+            <form id="task-form" class="custom-form" novalidate>
+                <label for="title">Título</label>
+                <span id="error-title" class="error-message">Por favor, preencha o título.</span>
+                <input type="text" id="title" placeholder="Ex: Estudar Banco de Dados">
 
-<main>
+                <label for="responsavel">Responsável</label>
+                <span id="error-responsavel" class="error-message">Quem é o responsável?</span>
+                <input type="text" id="responsavel" placeholder="Nome do responsável">
 
-<section>
-  <h2>Nova Tarefa</h2>
+                <label for="categoria">Categoria</label>
+                <select id="categoria">
+                    <option value="Frontend">Frontend</option>
+                    <option value="Backend">Backend</option>
+                </select>
 
-  <form id="task-form">
-
-    <input id="title" placeholder="Título">
-    <input id="responsavel" placeholder="Responsável">
-
-    <select id="categoria">
-      <option value="">Categoria</option>
-      <option>Frontend</option>
-      <option>Backend</option>
-    </select>
-
-    <button type="submit">Cadastrar</button>
-
-  </form>
-
-</section>
-
-</main>
-
-<script type="module" src="src/index.js"></script>
-
+                <button type="submit" class="btn-primary">Finalizar Cadastro</button>
+            </form>
+        </section>
+    </main>
+    <aside id="toast-success" class="toast">
+        <span class="toast-icon">🚀</span>
+        <p class="toast-message">Sucesso! Tarefa adicionada ao TaskFlow.</p>
+    </aside>
+    <script type="module" src="src/cadastro.js"></script>
 </body>
 </html>
