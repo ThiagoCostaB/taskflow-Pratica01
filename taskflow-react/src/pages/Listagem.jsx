@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 
 import TaskCard from "../components/TaskCard";
 
@@ -12,13 +12,54 @@ function Listagem() {
     updateTaskStatus
   } = useContext(TaskContext);
 
+  const [filtro, setFiltro] = useState("Todos");
+
+  const tarefasFiltradas = tasks.filter(task => {
+
+  if (filtro === "Todos") {
+    return true;
+  }
+
+  return task.status === filtro;
+
+});
+
   return (
 
     <main className="container">
 
+        <div className="filter-bar">
+
+  <select
+    value={filtro}
+    onChange={(e) =>
+      setFiltro(e.target.value)
+    }
+  >
+
+    <option>
+      Todos
+    </option>
+
+    <option>
+      Pendente
+    </option>
+
+    <option>
+      Em andamento
+    </option>
+
+    <option>
+      Concluída
+    </option>
+
+  </select>
+
+</div>
+
       <section className="task-grid">
 
-        {tasks.map(task => (
+        {tarefasFiltradas.map(task => (
 
           <TaskCard
             key={task.id}
