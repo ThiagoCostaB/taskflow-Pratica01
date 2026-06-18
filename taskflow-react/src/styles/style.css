@@ -212,3 +212,41 @@ input, select {
     font-weight: 500;
     font-size: 0.95rem;
 }
+
+@media (max-width: 768px) {
+
+  .main-header {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+
+  .main-nav ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .task-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .custom-form {
+    padding: 20px;
+  }
+
+}
+.filter-bar {
+  margin-bottom: 20px;
+}
+
+.filter-bar select {
+  padding: 10px;
+  border-radius: 8px;
+  background: #0f172a;
+  color: white;
+  border: 1px solid #334155;
+}
