@@ -8,7 +8,8 @@ function Listagem() {
 
   const {
     tasks,
-    deleteTask
+    deleteTask,
+    updateTaskStatus
   } = useContext(TaskContext);
 
   return (
@@ -23,6 +24,7 @@ function Listagem() {
             key={task.id}
             task={task}
             onDelete={deleteTask}
+            onStatusChange={updateTaskStatus}
           />
 
         ))}

@@ -25,6 +25,10 @@ function Navbar() {
             <Link to="/listagem">Listagem</Link>
           </li>
 
+          <li>
+  <Link to="/sobre">Sobre</Link>
+</li>
+
         </ul>
 
       </nav>

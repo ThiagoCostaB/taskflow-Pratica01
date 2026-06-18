@@ -33,12 +33,29 @@ export function TaskProvider({ children }) {
     );
   }
 
+  function updateTaskStatus(id, status) {
+
+  const updatedTasks = tasks.map(task =>
+    task.id === id
+      ? { ...task, status }
+      : task
+  );
+
+  setTasks(updatedTasks);
+
+  localStorage.setItem(
+    "tarefas",
+    JSON.stringify(updatedTasks)
+  );
+}
+
   return (
     <TaskContext.Provider
       value={{
         tasks,
         addTask,
-        deleteTask
+        deleteTask,
+        updateTaskStatus
       }}
     >
       {children}

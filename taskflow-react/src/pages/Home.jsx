@@ -48,6 +48,28 @@ function Home() {
 
       </section>
 
+      <section className="stats-grid">
+
+  <article className="card total">
+    <h3>Total</h3>
+    <p className="stat-number">
+      {tasks.length}
+    </p>
+  </article>
+
+  <article className="card concluidas">
+    <h3>Concluídas</h3>
+    <p className="stat-number">
+      {
+        tasks.filter(
+          task => task.status === "Concluída"
+        ).length
+      }
+    </p>
+  </article>
+
+</section>
+
     </main>
   );
 }

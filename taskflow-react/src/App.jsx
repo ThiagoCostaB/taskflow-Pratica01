@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Cadastro from "./pages/Cadastro";
 import Listagem from "./pages/Listagem";
+import Sobre from "./pages/Sobre";
 
 function App() {
 
@@ -29,6 +30,11 @@ function App() {
           path="/listagem"
           element={<Listagem />}
         />
+
+        <Route
+  path="/sobre"
+  element={<Sobre />}
+/>
 
       </Routes>
 

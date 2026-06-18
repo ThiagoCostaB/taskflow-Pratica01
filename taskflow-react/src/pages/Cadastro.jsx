@@ -1,40 +1,47 @@
-import { useState } from "react";
-import { useContext } from "react";
-
+import { useState, useContext } from "react";
 import { TaskContext } from "../context/TaskContext";
 
 function Cadastro() {
+  const { addTask } = useContext(TaskContext);
 
-  const { addTask } =
-    useContext(TaskContext);
+  const [title, setTitle] = useState("");
+  const [responsavel, setResponsavel] = useState("");
+  const [categoria, setCategoria] = useState("");
+  const [prioridade, setPrioridade] = useState("");
 
-  const [title, setTitle] =
-    useState("");
-
-  const [responsavel, setResponsavel] =
-    useState("");
-
-  const [error, setError] =
-    useState("");
+  const [error, setError] = useState("");
 
   function handleSubmit(e) {
-
     e.preventDefault();
 
     if (title.trim().length < 3) {
-
-      setError(
-        "O título deve possuir pelo menos 3 caracteres"
-      );
-
+      setError("Título deve ter pelo menos 3 caracteres");
       return;
     }
+
+    if (responsavel.trim().length < 2) {
+      setError("Informe um responsável");
+      return;
+    }
+
+    if (!categoria) {
+  setError("Selecione uma categoria");
+  return;
+}
+
+if (!prioridade) {
+  setError("Selecione uma prioridade");
+  return;
+}
 
     addTask({
       id: Date.now(),
       title,
       responsavel,
-      status: "pendente"
+      categoria,
+      prioridade,
+      status: "Pendente",
+      criadoEm: new Date().toLocaleDateString("pt-BR")
     });
 
     setTitle("");
@@ -44,43 +51,83 @@ function Cadastro() {
 
   return (
     <main className="container">
+      <form onSubmit={handleSubmit} className="custom-form">
 
-      <form
-        onSubmit={handleSubmit}
-        className="custom-form"
-      >
+        <h2>Nova Tarefa</h2>
 
         <input
-          value={title}
-          onChange={e =>
-            setTitle(e.target.value)
-          }
+          type="text"
           placeholder="Título"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
         />
 
         <input
-          value={responsavel}
-          onChange={e =>
-            setResponsavel(e.target.value)
-          }
+          type="text"
           placeholder="Responsável"
+          value={responsavel}
+          onChange={(e) => setResponsavel(e.target.value)}
         />
+
+        <select
+  value={categoria}
+  onChange={(e) => setCategoria(e.target.value)}
+>
+
+  <option value="">
+    Selecione uma categoria
+  </option>
+
+  <option value="Frontend">
+    Frontend
+  </option>
+
+  <option value="Backend">
+    Backend
+  </option>
+
+  <option value="Design">
+    Design
+  </option>
+
+  <option value="Banco de Dados">
+    Banco de Dados
+  </option>
+
+</select>
+
+        <select
+  value={prioridade}
+  onChange={(e) => setPrioridade(e.target.value)}
+>
+
+  <option value="">
+    Selecione uma prioridade
+  </option>
+
+  <option value="Alta">
+    Alta
+  </option>
+
+  <option value="Média">
+    Média
+  </option>
+
+  <option value="Baixa">
+    Baixa
+  </option>
+
+</select>
 
         {error && (
-          <p className="error-message">
-            {error}
-          </p>
+          <p className="error-message">{error}</p>
         )}
 
-        <button
-          type="submit"
-          className="btn-primary"
-        >
-          Cadastrar
+        <button className="btn-primary">
+          Cadastrar Tarefa
         </button>
 
       </form>
-
     </main>
   );
 }
