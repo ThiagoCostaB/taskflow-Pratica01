@@ -1,6 +1,4 @@
-import { useContext } from "react";
-import { useEffect, useState } from "react";
-
+import { useContext, useEffect, useState } from "react";
 import { TaskContext } from "../context/TaskContext";
 import { api } from "../services/api";
 
@@ -19,6 +17,16 @@ function Home() {
 
   }, []);
 
+  const concluidas =
+    tasks.filter(
+      task => task.status === "Concluída"
+    ).length;
+
+  const pendentes =
+    tasks.filter(
+      task => task.status === "Pendente"
+    ).length;
+
   return (
     <main className="container">
 
@@ -27,18 +35,41 @@ function Home() {
         <h2>Organize suas tarefas</h2>
 
         <p>
-          Total de tarefas:
-          {" "}
-          {tasks.length}
+          Controle simples e eficiente para seus projetos.
         </p>
 
       </section>
 
-      <section>
+      <section className="stats-grid">
+
+        <article className="card">
+          <h3>Total</h3>
+          <p className="stat-number">
+            {tasks.length}
+          </p>
+        </article>
+
+        <article className="card">
+          <h3>Pendentes</h3>
+          <p className="stat-number">
+            {pendentes}
+          </p>
+        </article>
+
+        <article className="card">
+          <h3>Concluídas</h3>
+          <p className="stat-number">
+            {concluidas}
+          </p>
+        </article>
+
+      </section>
+
+      <section className="recent-tasks">
 
         <h2>Usuários da API</h2>
 
-        {users.slice(0, 3).map(user => (
+        {users.slice(0,5).map(user => (
 
           <p key={user.id}>
             {user.name}
@@ -47,28 +78,6 @@ function Home() {
         ))}
 
       </section>
-
-      <section className="stats-grid">
-
-  <article className="card total">
-    <h3>Total</h3>
-    <p className="stat-number">
-      {tasks.length}
-    </p>
-  </article>
-
-  <article className="card concluidas">
-    <h3>Concluídas</h3>
-    <p className="stat-number">
-      {
-        tasks.filter(
-          task => task.status === "Concluída"
-        ).length
-      }
-    </p>
-  </article>
-
-</section>
 
     </main>
   );
